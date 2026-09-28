@@ -4695,5 +4695,104 @@
     "size": "159 KB",
     "category": "Học tiếng trung",
     "drive_url": "https://docs.google.com/spreadsheets/d/1ipB838lPloXgRnMEQZX1jup2B4tpm_A9__oBO-ePpCM/edit"
+  },
+  {
+    "id": 428,
+    "name": "Python cơ bản",
+    "keywords": [
+      "pythoncoban"
+    ],
+    "type": "Drive",
+    "size": "159 KB",
+    "category": "CNTT",
+    "drive_url": "https://drive.google.com/file/d/1ILTNiPBtP4dz_nBHwdXCk5H1kF_MQe3Y/edit"
+  },
+  {
+    "id": 429,
+    "name": "Tài liệu ielts thầy Simon",
+    "keywords": [
+      "tailieuieltsthaysimon"
+    ],
+    "type": "Drive",
+    "size": "159 KB",
+    "category": "Học tiếng anh",
+    "drive_url": "https://drive.google.com/drive/folders/1AtnKx8gvgOkeUbTKpDGeJKPIaISBbCrv"
+  },
+  {
+    "id": 430,
+    "name": "Kho ngữ pháp IELTS 0-8.5",
+    "keywords": [
+      "khonguphapielts"
+    ],
+    "type": "Drive",
+    "size": "159 KB",
+    "category": "Học tiếng anh",
+    "drive_url": "https://drive.google.com/drive/folders/1E3yawWCqqjZ8UE6YDU6XBO3ctx5H0ZUC"
+  },
+  {
+    "id": 431,
+    "name": "Kho tài liệu Listening",
+    "keywords": [
+      "khotailieulistening"
+    ],
+    "type": "Drive",
+    "size": "159 KB",
+    "category": "Học tiếng anh",
+    "drive_url": "https://drive.google.com/open?id=1B44DsktIsSOw9v7HYTZjHiqme5M4_Uy9&usp=drive_copy"
+  },
+  {
+    "id": 432,
+    "name": "Kho tài liệu Reading",
+    "keywords": [
+      "khotailieureading"
+    ],
+    "type": "Drive",
+    "size": "159 KB",
+    "category": "Học tiếng anh",
+    "drive_url": "https://drive.google.com/drive/folders/1BYdedLoEWrKh53pHqfH0oGFZIN1Ju_3Q"
+  },
+  {
+    "id": 433,
+    "name": "Kho tài liệu Speaking",
+    "keywords": [
+      "khotailieuspeaking"
+    ],
+    "type": "Drive",
+    "size": "159 KB",
+    "category": "Học tiếng anh",
+    "drive_url": "https://drive.google.com/drive/folders/1yaldxd7j0UMnuz-dXV2WIEbvWspjr6Qw"
+  },
+  {
+    "id": 434,
+    "name": "Kho tài liệu Writing",
+    "keywords": [
+      "khotailieuwriting"
+    ],
+    "type": "Drive",
+    "size": "159 KB",
+    "category": "Học tiếng anh",
+    "drive_url": "https://drive.google.com/drive/folders/1PNdyGao0WKcENB_jU7UgMYHr4GleVfPB"
+  },
+  {
+    "id": 435,
+    "name": "Tài liệu sinh viên",
+    "keywords": [
+      "tailieusinhvien"
+    ],
+    "type": "Drive",
+    "size": "159 KB",
+    "category": "Tài liệu sinh viên",
+    "drive_url": "https://drive.google.com/drive/folders/1FF7bZ61eYTNg4NCSjoHaDV26b6Py0vav"
+  },
+  {
+    "id": 436,
+    "name": "TỔNG HỢP TÀI LIỆU ĐẠI CƯƠNG MỘT SỐ MÔN TRÊN ĐẠI HỌC",
+    "keywords": [
+      "tonghoptailieudaicuong"
+    ],
+    "type": "Drive",
+    "size": "159 KB",
+    "category": "Tài liệu sinh viên",
+    "drive_url": "https://drive.google.com/drive/folders/1Q17fE91INFiGhsyOJIlwfcKxg3T6Q134"
   }
 ]
