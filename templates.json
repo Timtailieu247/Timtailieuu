@@ -4878,7 +4878,7 @@
     "keywords": [
       "xulytinhuongtrongquan"
     ],
-    "type": "Google Drive",
+    "type": "Google Docs",
     "size": "—",
     "category": "Vận hành",
     "drive_url": "https://docs.google.com/document/d/15jgiwf4sD3e6RdexmFYHfLwRKokj2B_f/edit"
@@ -4889,7 +4889,7 @@
     "keywords": [
       "quytrinhphucvuvoiphuongthucthanhtoantaiban"
     ],
-    "type": "Google Drive",
+    "type": "Google Docs",
     "size": "—",
     "category": "Vận hành",
     "drive_url": "https://docs.google.com/document/d/1QCzk3aI3H3avkae0doOe1b88E2R7sJec/edit"
@@ -4900,7 +4900,7 @@
     "keywords": [
       "quytrinhlamviecnhanvienbar"
     ],
-    "type": "Google Drive",
+    "type": "Google Docs",
     "size": "—",
     "category": "Vận hành",
     "drive_url": "https://docs.google.com/document/d/1kt-b8YVw6Q6XOleD_eOQHN5kXitWBKST/edit"
@@ -4922,7 +4922,7 @@
     "keywords": [
       "noiquynhanvien"
     ],
-    "type": "Google Drive",
+    "type": "Google Docs",
     "size": "—",
     "category": "Vận hành",
     "drive_url": "https://docs.google.com/document/d/12alwX-Fr8O4QT8Bx1DR9-JS_PEC9Jnse/edit"
@@ -4933,7 +4933,7 @@
     "keywords": [
       "kichbanquytrinhquancaphe"
     ],
-    "type": "Google Drive",
+    "type": "Google Docs",
     "size": "—",
     "category": "Vận hành",
     "drive_url": "https://docs.google.com/spreadsheets/d/1rlJonZWVrBeNsJd0rzUDE5FhEMlcJgX_/edit?gid=931166171#gid=931166171"
@@ -4944,7 +4944,7 @@
     "keywords": [
       "kichbanquytrinhquancaphe2"
     ],
-    "type": "Google Drive",
+    "type": "Google Docs",
     "size": "—",
     "category": "Vận hành",
     "drive_url": "https://docs.google.com/document/d/1WJTTtANVqprVTtWsfWJQO6U5WyygW7WE/edit"
@@ -4955,7 +4955,7 @@
     "keywords": [
       "giaotrinhdaotaoquanlyquancaphe"
     ],
-    "type": "Google Drive",
+    "type": "Google Docs",
     "size": "—",
     "category": "Vận hành",
     "drive_url": "https://docs.google.com/document/d/10gBMnbsXgWTwiwlsASsrRP3g9aw8VQUl/edit"
@@ -4966,7 +4966,7 @@
     "keywords": [
       "quytrinhchocapquanlyquan"
     ],
-    "type": "Google Drive",
+    "type": "Google Docs",
     "size": "—",
     "category": "Vận hành",
     "drive_url": "https://docs.google.com/document/d/1G0P7eXmvG6SNN1kpKCxjxG1R9JWjgCFs/edit"
@@ -4977,7 +4977,7 @@
     "keywords": [
       "checklistthungan"
     ],
-    "type": "Google Drive",
+    "type": "Google Docs",
     "size": "—",
     "category": "Vận hành",
     "drive_url": "https://docs.google.com/document/d/1h9fqO0XY03fq-Bdv7P6dTeTOC2co-d5G/edit?rtpof=true"
@@ -4988,7 +4988,7 @@
     "keywords": [
       "checklistwc"
     ],
-    "type": "Google Drive",
+    "type": "Google Docs",
     "size": "—",
     "category": "Vận hành",
     "drive_url": "https://docs.google.com/document/d/15XReAkW4v1auoHmRmJcMGXX5lY3Ud0jt/edit?rtpof=true"
@@ -4999,7 +4999,7 @@
     "keywords": [
       "checklistban"
     ],
-    "type": "Google Drive",
+    "type": "Google Docs",
     "size": "—",
     "category": "Vận hành",
     "drive_url": "https://docs.google.com/document/d/1c_subBDY7VbaMclY8T9ud1QON-_DSEJq/edit?rtpof=true&tab=t.0"
@@ -5010,7 +5010,7 @@
     "keywords": [
       "checklistbar"
     ],
-    "type": "Google Drive",
+    "type": "Google Docs",
     "size": "—",
     "category": "Vận hành",
     "drive_url": "https://docs.google.com/document/d/1di8LhDJiLvgjAIjlS14Q-4k_LKq6odRr/edit?rtpof=true&tab=t.0"
@@ -5076,7 +5076,7 @@
     "keywords": [
       "cachchonhoaqua"
     ],
-    "type": "Google Drive",
+    "type": "Google Docs",
     "size": "—",
     "category": "Vận hành",
     "drive_url": "https://docs.google.com/presentation/d/1T7p_xH4WKdA1h4n8Uyhpa_jtoytHBTCE/edit?slide=id.p18#slide=id.p18"
@@ -5201,5 +5201,104 @@
     "size": "—",
     "category": "Học Facebook Ads",
     "drive_url": "https://drive.google.com/drive/folders/17gLBfFwXwJCYVkDkRhIxXVErhUXzVn2y?usp=drive_link"
+  },
+  {
+    "id": 474,
+    "name": "Ebook Sợi chỉ hy vọng",
+    "keywords": [
+      "ebooksoichihyvong"
+    ],
+    "type": "Google Drive",
+    "size": "—",
+    "category": "ebook",
+    "drive_url": "https://drive.google.com/file/d/1eGrDQ6iSJTwNcFO7O8xJYzOd6_qdUoHC/view"
+  },
+  {
+    "id": 475,
+    "name": "Ebook Ô Long Viện Bộ kinh điển - Màu",
+    "keywords": [
+      "ebookolongvienmau"
+    ],
+    "type": "Google Drive",
+    "size": "—",
+    "category": "ebook",
+    "drive_url": "https://drive.google.com/drive/u/0/folders/189-7Mm-yQbQvXBLUkpXUpO_jDizthK0C"
+  },
+  {
+    "id": 476,
+    "name": "Epub Và Rồi Không Ai Chết Cả - Shirai Tomoyuki",
+    "keywords": [
+      "epubvaroikoaichetca"
+    ],
+    "type": "Google Drive",
+    "size": "—",
+    "category": "ebook",
+    "drive_url": "https://drive.google.com/drive/u/0/folders/189-7Mm-yQbQvXBLUkpXUpO_jDizthK0C"
+  },
+  {
+    "id": 477,
+    "name": "Epub Nửa kia biệt tích - Brit Bennett",
+    "keywords": [
+      "epubnuakiabiettich"
+    ],
+    "type": "Google Drive",
+    "size": "—",
+    "category": "ebook",
+    "drive_url": "https://drive.google.com/file/d/1Hm_Pnpw6n1R2hvcDmQ30QSj64cAvJYfy/view"
+  },
+  {
+    "id": 478,
+    "name": "Nhật ký chú bé nhút nhát (T01-T17)",
+    "keywords": [
+      "epubnhatkychubenhutnhat"
+    ],
+    "type": "Google Drive",
+    "size": "—",
+    "category": "ebook",
+    "drive_url": "https://drive.google.com/drive/folders/13VOs_spJXL_HEieR0lAGEP36oc3FUEba"
+  },
+  {
+    "id": 479,
+    "name": "Epub Haruki Murakami",
+    "keywords": [
+      "epubharuki"
+    ],
+    "type": "Google Drive",
+    "size": "—",
+    "category": "ebook",
+    "drive_url": "https://drive.google.com/drive/folders/19yjhM1qa-Fb_pjWYMMpixKZDmjR7QQGh"
+  },
+  {
+    "id": 480,
+    "name": "Epub Edogawa Ranpo",
+    "keywords": [
+      "epubedogawa"
+    ],
+    "type": "Google Drive",
+    "size": "—",
+    "category": "ebook",
+    "drive_url": "https://drive.google.com/drive/folders/199k88AvwGpnLzpvaM5DvcG_5cjzRNQhN"
+  },
+  {
+    "id": 481,
+    "name": "Epub Dan Brown",
+    "keywords": [
+      "eppubdan"
+    ],
+    "type": "Google Drive",
+    "size": "—",
+    "category": "ebook",
+    "drive_url": "https://drive.google.com/drive/folders/1saLIAwbHN4INWjhoLAlcZFL7qr-ITFRT"
+  },
+  {
+    "id": 482,
+    "name": "Epub Chú hề trong ngôi nhà chữ thập Tác giả Higashino Keigo",
+    "keywords": [
+      "epubchuhetrongnoinhachuthap"
+    ],
+    "type": "Google Drive",
+    "size": "—",
+    "category": "ebook",
+    "drive_url": "https://drive.google.com/file/d/1QxK_SYLRIPoVDghgTYtcyfHijoO1OazP/view"
   }
 ]
