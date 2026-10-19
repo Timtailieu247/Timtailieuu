@@ -2263,7 +2263,7 @@
     "type": "Google Drive",
     "size": "159 KB",
     "category": "Học tiếng anh",
-    "drive_url": "https://drive.google.com/open?id=1B44DsktIsSOw9v7HYTZjHiqme5M4_Uy9&usp=drive_copy"
+    "drive_url": "https://drive.google.com/drive/folders/1B44DsktIsSOw9v7HYTZjHiqme5M4_Uy9"
   },
   {
     "id": 207,
@@ -5300,5 +5300,38 @@
     "size": "—",
     "category": "ebook",
     "drive_url": "https://drive.google.com/file/d/1QxK_SYLRIPoVDghgTYtcyfHijoO1OazP/view"
+  },
+  {
+    "id": 483,
+    "name": "3000 từ vựng tiếng Anh theo chủ đề — 115 bộ từ vựng",
+    "keywords": [
+      "3000tuvungtienganhtheochude"
+    ],
+    "type": "Google Docs",
+    "size": "—",
+    "category": "Học tiếng anh",
+    "drive_url": "https://docs.google.com/spreadsheets/d/1Zr7-nCf0TumvUVOIaqmTh8vjsEZ5kuqogHNhHGHjdD8/edit?gid=582839178#gid=582839178"
+  },
+  {
+    "id": 484,
+    "name": "BỘ TÀI LIỆU NGỮ PHÁP TIẾNG ANH TỪ 0-900+",
+    "keywords": [
+      "botailieunguphaptu0-900"
+    ],
+    "type": "Google Drive",
+    "size": "—",
+    "category": "Học tiếng anh",
+    "drive_url": "https://drive.google.com/drive/folders/1uK_1-WfsHx5zdC_CncgixHd6tiZYn-qR"
+  },
+  {
+    "id": 485,
+    "name": "Tài liệu tự học ACCA Kim Hoàng (Finance) New",
+    "keywords": [
+      "tailieutuhocaccakimhoang"
+    ],
+    "type": "Google Docs",
+    "size": "—",
+    "category": "Khác",
+    "drive_url": "https://docs.google.com/spreadsheets/d/1VmjG7xkKVWf4gi7fns2F6TfeynErxZEhCj9DHbnkEDs/edit?gid=0#gid=0"
   }
 ]
