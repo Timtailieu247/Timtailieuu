@@ -21,17 +21,6 @@
 <meta name="twitter:description" content="Kho template miễn phí đa ngành nghề: menu, nhân sự, tài chính, vận hành, học ngôn ngữ." />
 <meta name="twitter:image" content="https://timtailieu.site/preview.jpg" />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://longct4296.github.io/Timtailieu/" />
-<meta property="og:title" content="Tìm Tài Liệu — Kho template miễn phí đa ngành" />
-<meta property="og:description" content="Tải miễn phí hàng trăm template: menu, nhân sự, tài chính, học tiếng Anh, tiếng Trung, vận hành và nhiều hơn nữa." />
-<meta property="og:image" content="https://longct4296.github.io/Timtailieu/preview.jpg" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:locale" content="vi_VN" />
-<meta property="og:site_name" content="Tìm Tài Liệu" />
-
 <style>
 :root {
 --bg: #f9f8f5;
@@ -229,121 +218,6 @@ font-size: 14px;
 }
 .empty strong { display: block; font-size: 32px; margin-bottom: 8px; }
 
-/* ── POPUP OVERLAY ── */
-.overlay {
-display: none;
-position: fixed;
-inset: 0;
-background: rgba(0,0,0,0.45);
-z-index: 999;
-align-items: center;
-justify-content: center;
-padding: 20px;
-}
-.overlay.show { display: flex; }
-
-.popup {
-background: var(--white);
-border-radius: var(--radius);
-width: 100%;
-max-width: 360px;
-overflow: hidden;
-animation: popIn 0.2s ease;
-}
-@keyframes popIn {
-from { opacity: 0; transform: scale(0.95) translateY(8px); }
-to   { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-.popup-header {
-background: var(--orange);
-padding: 18px 20px 16px;
-position: relative;
-}
-.popup-header .label {
-font-size: 11px;
-color: rgba(255,255,255,0.8);
-margin-bottom: 4px;
-}
-.popup-header h3 {
-font-size: 15px;
-font-weight: 600;
-color: #fff;
-line-height: 1.4;
-}
-.popup-close {
-position: absolute;
-top: 14px;
-right: 16px;
-background: rgba(255,255,255,0.2);
-border: none;
-color: #fff;
-width: 26px;
-height: 26px;
-border-radius: 50%;
-font-size: 14px;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-
-.popup-body { padding: 18px 20px 0; }
-.popup-body p {
-font-size: 13px;
-color: var(--muted);
-line-height: 1.6;
-margin-bottom: 16px;
-}
-
-.aff-btn {
-display: flex;
-align-items: center;
-gap: 12px;
-width: 100%;
-padding: 13px 16px;
-background: #fff7f0;
-border: 1.5px solid var(--orange);
-border-radius: var(--radius-sm);
-cursor: pointer;
-margin-bottom: 16px;
-transition: background 0.15s;
-text-decoration: none;
-}
-.aff-btn:hover { background: #fff0e0; }
-.aff-logo {
-width: 36px;
-height: 36px;
-border-radius: 8px;
-background: var(--orange);
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 18px;
-flex-shrink: 0;
-}
-.aff-text { flex: 1; text-align: left; }
-.aff-text strong { display: block; font-size: 13px; color: var(--text); }
-.aff-text span { font-size: 11px; color: var(--muted); }
-.aff-arrow { color: var(--orange); font-size: 18px; }
-
-.popup-footer {
-padding: 0 20px 20px;
-}
-.btn-confirm {
-width: 100%;
-padding: 12px;
-font-size: 14px;
-font-weight: 500;
-background: var(--green);
-color: #fff;
-border: none;
-border-radius: 100px;
-cursor: pointer;
-transition: background 0.15s;
-}
-.btn-confirm:hover { background: var(--green-dark); }
-
 /* ── TOAST ── */
 .toast {
 position: fixed;
@@ -395,7 +269,7 @@ Thử tìm:
 <span onclick="quickSearch('Tiếng Trung')">Tiếng Trung</span>
 <span onclick="quickSearch('Marketing')">Marketing</span>
 <span onclick="quickSearch('Edit video')">Edit video</span>
-<span onclick="quickSearch('Học MOS')">Học MOS</span>     
+<span onclick="quickSearch('Học MOS')">Học MOS</span>
 </div>
 
 <div class="cat-wrap" id="catWrap">
@@ -409,30 +283,6 @@ Thử tìm:
 
 <div class="results" id="results"></div>
 
-<!-- POPUP -->
-<div class="overlay" id="overlay">
-<div class="popup">
-<div class="popup-header">
-<div class="label">📦 Bạn đang tải</div>
-<h3 id="popupTitle">—</h3>
-<button class="popup-close" onclick="closePopup()">✕</button>
-</div>
-<div class="popup-body">
-<p>Tài liệu này miễn phí 100%. Bạn có thể ủng hộ mình bằng cách ghé xem 1 sản phẩm trên Shopee trước nhé 🙏</p>
-<a class="aff-btn" id="affLink" href="#" target="_blank" rel="noopener">
-<div class="aff-logo">🛒</div>
-<div class="aff-text">
-<strong>Xem ngay trên Shopee</strong>
-</div>
-<span class="aff-arrow">→</span>
-</a>
-</div>
-<div class="popup-footer">
-<button class="btn-confirm" onclick="doDownloadFromAff()">Xem Shopee → Tải file</button>
-</div>
-</div>
-</div>
-
 <div class="toast" id="toast">⬇ Đang mở file tải xuống...</div>
 
 <script>
@@ -440,6 +290,20 @@ const AFFILIATE_URL = 'https://s.shopee.vn/20wXuskbYB';
 
 let templates = [];
 let currentItem = null;
+
+// ── CLICK ĐẦU TIÊN → MỞ SHOPEE (1 lần / phiên) ──
+let affTriggered = false;
+try { affTriggered = sessionStorage.getItem('aff_done') === '1'; } catch (e) {}
+
+document.addEventListener('click', function (e) {
+  if (affTriggered) return;
+  affTriggered = true;
+  try { sessionStorage.setItem('aff_done', '1'); } catch (e) {}
+
+  e.preventDefault();
+  e.stopPropagation();           // click đầu tiên chỉ dùng để mở Shopee
+  window.open(AFFILIATE_URL, '_blank', 'noopener');
+}, true);                        // capture phase: chạy trước mọi onclick khác
 
 const fileIcons = { Excel: '📊', PDF: '📄', Word: '📝' };
 const fileBg    = { Excel: '', PDF: 'pdf', Word: 'word' };
@@ -500,31 +364,12 @@ items.map(t => `
    `).join('');
 }
 
+// Bấm tải → mở thẳng link gốc (không còn popup Shopee)
 function openPopup(id) {
-currentItem = templates.find(t => t.id === id);
-if (!currentItem) return;
-document.getElementById('popupTitle').textContent = currentItem.name;
-document.getElementById('affLink').href = AFFILIATE_URL;
-document.getElementById('overlay').classList.add('show');
-}
-
-function closePopup() {
-document.getElementById('overlay').classList.remove('show');
-}
-
-function doDownload() {
-closePopup();
-if (currentItem) window.open(currentItem.drive_url, '_blank');
+const item = templates.find(t => t.id === id);
+if (!item) return;
+window.open(item.drive_url, '_blank');
 showToast();
-}
-
-function doDownloadFromAff() {
-window.open(AFFILIATE_URL, '_blank');
-closePopup();
-setTimeout(() => {
-if (currentItem) window.open(currentItem.drive_url, '_blank');
-showToast();
-}, 800);
 }
 
 function showToast() {
@@ -539,10 +384,6 @@ input.value = kw;
 input.dispatchEvent(new Event('input'));
 input.focus();
 }
-
-document.getElementById('overlay').addEventListener('click', e => {
-if (e.target === document.getElementById('overlay')) closePopup();
-});
 
 let debounce;
 document.getElementById('searchInput').addEventListener('input', e => {
