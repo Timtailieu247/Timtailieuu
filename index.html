@@ -238,6 +238,17 @@ pointer-events: none;
 transform: translateX(-50%) translateY(0);
 opacity: 1;
 }
+
+/* ── POPUP MỞ BẰNG TRÌNH DUYỆT (chỉ hiện trong app Threads/Instagram/Facebook) ── */
+.ext-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 10000; align-items: center; justify-content: center; padding: 20px; }
+.ext-overlay.show { display: flex; }
+.ext-box { background: var(--white); border-radius: var(--radius); width: 100%; max-width: 340px; padding: 26px 22px 18px; text-align: center; }
+.ext-box h3 { font-size: 16px; margin-bottom: 8px; }
+.ext-box p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 18px; }
+.ext-btn { width: 100%; padding: 13px; font-size: 14px; font-weight: 600; background: var(--green); color: #fff; border: none; border-radius: 100px; cursor: pointer; }
+.ext-btn:hover { background: var(--green-dark); }
+.ext-hint { display: none; margin-top: 12px; font-size: 12px; color: var(--text); background: var(--green-light); border-radius: var(--radius-sm); padding: 10px; line-height: 1.5; }
+.ext-skip { display: inline-block; margin-top: 14px; font-size: 12px; color: var(--muted); text-decoration: underline; cursor: pointer; }
 </style>
 </head>
 <body>
@@ -283,6 +294,17 @@ Thử tìm:
 
 <div class="results" id="results"></div>
 
+<!-- POPUP MỞ BẰNG TRÌNH DUYỆT -->
+<div class="ext-overlay" id="extOverlay">
+<div class="ext-box">
+<h3>🌐 Mở bằng trình duyệt để dùng tốt hơn</h3>
+<p>Mở trang bằng Chrome/Safari để tìm và tải tài liệu mượt hơn, ít bị lỗi hơn trong app Threads.</p>
+<button class="ext-btn" id="extBtn" type="button">Mở bằng trình duyệt</button>
+<div class="ext-hint" id="extHint">Nếu chưa tự mở: bấm dấu <b>⋯</b> ở góc phải trên cùng → chọn <b>Mở bằng trình duyệt</b>.</div>
+<span class="ext-skip" id="extSkip">Tiếp tục xem ở đây</span>
+</div>
+</div>
+
 <div class="toast" id="toast">⬇ Đang mở file tải xuống...</div>
 
 <script>
@@ -297,7 +319,38 @@ const STEP_LINKS = [AFFILIATE_URL, TIKTOK_URL];
 let clickStep = 0;
 try { clickStep = parseInt(sessionStorage.getItem('click_step') || '0', 10) || 0; } catch (e) {}
 
+// ── POPUP: nếu đang trong app Threads/Instagram/Facebook → mời mở bằng trình duyệt ──
+const UA = navigator.userAgent || '';
+const IN_APP = /Barcelona|Instagram|FBAN|FBAV|FB_IAB|Threads/i.test(UA);
+const IS_ANDROID = /android/i.test(UA);
+const IS_IOS = /iphone|ipad|ipod/i.test(UA);
+
+if (IN_APP) {
+  document.getElementById('extOverlay').classList.add('show');
+}
+
+function openExternal() {
+  const clean = location.href.split('#')[0];
+  const noProto = clean.replace(/^https?:\/\//, '');
+  if (IS_ANDROID) {
+    // Mở bằng Chrome; nếu không được sẽ quay lại trang hiện tại
+    location.href = 'intent://' + noProto +
+      '#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=' +
+      encodeURIComponent(clean) + ';end';
+  } else if (IS_IOS) {
+    location.href = 'x-safari-https://' + noProto;  // mở bằng Safari (mặc định iPhone)
+  }
+  // Luôn hiện hướng dẫn dự phòng vì app có thể chặn tự mở
+  setTimeout(() => { document.getElementById('extHint').style.display = 'block'; }, 600);
+}
+
+document.getElementById('extBtn').addEventListener('click', openExternal);
+document.getElementById('extSkip').addEventListener('click', () => {
+  document.getElementById('extOverlay').classList.remove('show');
+});
+
 document.addEventListener('click', function (e) {
+  if (e.target.closest && e.target.closest('#extOverlay')) return;   // click trong popup không tính vào 2 bước
   if (clickStep >= STEP_LINKS.length) return;   // xong 2 bước → web chạy bình thường
 
   const url = STEP_LINKS[clickStep];
