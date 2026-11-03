@@ -287,22 +287,26 @@ Thử tìm:
 
 <script>
 const AFFILIATE_URL = 'https://s.shopee.vn/1BNZFPeVw8';
+const TIKTOK_URL    = 'https://vt.tiktok.com/ZS9yne91oUvGS-c52ig/';
 
 let templates = [];
 let currentItem = null;
 
-// ── CLICK ĐẦU TIÊN → MỞ SHOPEE (1 lần / phiên) ──
-let affTriggered = false;
-try { affTriggered = sessionStorage.getItem('aff_done') === '1'; } catch (e) {}
+// ── CLICK 1 → SHOPEE, CLICK 2 → TIKTOK (mỗi cái 1 lần / phiên), sau đó dùng web bình thường ──
+const STEP_LINKS = [AFFILIATE_URL, TIKTOK_URL];
+let clickStep = 0;
+try { clickStep = parseInt(sessionStorage.getItem('click_step') || '0', 10) || 0; } catch (e) {}
 
 document.addEventListener('click', function (e) {
-  if (affTriggered) return;
-  affTriggered = true;
-  try { sessionStorage.setItem('aff_done', '1'); } catch (e) {}
+  if (clickStep >= STEP_LINKS.length) return;   // xong 2 bước → web chạy bình thường
+
+  const url = STEP_LINKS[clickStep];
+  clickStep++;
+  try { sessionStorage.setItem('click_step', String(clickStep)); } catch (e) {}
 
   e.preventDefault();
-  e.stopPropagation();           // click đầu tiên chỉ dùng để mở Shopee
-  window.open(AFFILIATE_URL, '_blank', 'noopener');
+  e.stopPropagation();           // 2 click đầu chỉ dùng để mở link, không kích hoạt gì khác
+  window.open(url, '_blank', 'noopener');
 }, true);                        // capture phase: chạy trước mọi onclick khác
 
 const fileIcons = { Excel: '📊', PDF: '📄', Word: '📝' };
