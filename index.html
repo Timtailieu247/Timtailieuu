@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4DKXTQSHJY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4DKXTQSHJY');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tìm tài liệu— Thư viện tài liệu sưu tầm miễn phí</title>
-
+ 
 <!-- Open Graph tags (giúp Facebook/Threads hiển thị preview, tránh bị flag thiếu metadata) -->
 <meta property="og:title" content="Tìm tài liệu — Thư viện tài liệu sưu tầm miễn phí" />
 <meta property="og:description" content="Kho template miễn phí đa ngành nghề: menu, nhân sự, tài chính, vận hành, học ngôn ngữ." />
 <meta property="og:image" content="https://timtailieu.site/preview.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://timtailieu.site/" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="vi_VN" />
 
@@ -218,6 +225,8 @@ font-size: 14px;
 }
 .empty strong { display: block; font-size: 32px; margin-bottom: 8px; }
 
+.related-label { font-size: 13px; font-weight: 600; color: var(--green-dark); margin: 26px 0 12px 4px; }
+
 /* ── TOAST ── */
 .toast {
 position: fixed;
@@ -310,14 +319,65 @@ Thử tìm:
 <div class="toast" id="toast">⬇ Đang mở file tải xuống...</div>
 
 <script>
-const AFFILIATE_URL = 'https://s.shopee.vn/8KqxqgD5d2';
-const TIKTOK_URL    = 'go-tiktok.html';   // trang chuyển hướng cùng domain → tới link aff TikTok
+// ── CÔNG TẮC: true = bật popup mở bằng trình duyệt, false = tắt hẳn ──
+const ENABLE_POPUP = false;
+
+const AFFILIATE_URL = 'https://s.shopee.vn/2LZkhX3hQ8';   // link Shopee mặc định
+
+// ── LINK SHOPEE THEO DANH MỤC ──
+// Dán link affiliate vào từng danh mục. Để '' (trống) = dùng link mặc định ở trên.
+const AFF_BY_CATEGORY = {
+  'Học tiếng anh': 'https://s.shopee.vn/7Af3doCe5I',
+  'Học tiếng trung': 'https://s.shopee.vn/30pUflYYiT',
+  'Học tiếng Hàn': 'https://s.shopee.vn/1qdXI22mqc',
+  'Học tiếng Nhật': 'https://s.shopee.vn/5AtzGBRqZe',
+  'Học tiếng Nga': 'https://s.shopee.vn/9V2yQ9fsDD',
+  'Học tiếng Pháp': 'https://s.shopee.vn/9KjYDrSldH',
+  'Tiếng Đức': 'https://s.shopee.vn/906hpGD44L',
+  'Template marketing': 'https://s.shopee.vn/1BNqUwDqgO',
+  'Edit video': 'https://s.shopee.vn/9AQ81kGzaR',
+  'Học Facebook Ads': 'https://s.shopee.vn/1BNqV5KSOJ',
+  'Tiktok': 'https://s.shopee.vn/114QIoWraY',
+  'AI': 'https://s.shopee.vn/7fbKFBCM81',
+  'Vận hành': 'https://s.shopee.vn/9pfopDty1Q',
+  'Nhân sự': 'https://s.shopee.vn/4LKsHAQgbv',
+  'Biểu mẫu': 'https://s.shopee.vn/4LKsHAQgbv',
+  'Kinh doanh': 'https://s.shopee.vn/5VWpfLDfXd',
+  'Plan du lịch': 'https://s.shopee.vn/9pfopL9QTp',
+  'Mẹ và bé': 'https://s.shopee.vn/5LDPT6z5I1',
+  'Học MOS': 'https://s.shopee.vn/4B1S50aodI',
+  'Tài liệu Affiliate': 'https://s.shopee.vn/2VtE612Zht',
+  'Kỹ năng phát triển bàn thân': 'https://s.shopee.vn/1qdXIpmN3A',
+  'Toán Học': 'https://s.shopee.vn/AUvVcnRliV',
+  'Văn học': 'https://s.shopee.vn/AUvVcnRliV',
+  'CNTT': 'https://s.shopee.vn/5fqFs1QIAG',
+  'Tài liệu sinh viên': 'https://s.shopee.vn/5fqFs1QIAG',
+  'ebook': 'https://s.shopee.vn/5fqFs1QIAG',
+  'Khác': 'https://s.shopee.vn/80EAeFijgQ',
+};
+function affUrlFor(category) {
+  return (category && AFF_BY_CATEGORY[category]) || AFFILIATE_URL;
+}
+
+// ── Chống chèn mã độc khi hiển thị chữ lên trang ──
+function esc(str) {
+  return String(str == null ? '' : str)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+// ── Gửi sự kiện cho Google Tag Manager (cần tạo trigger "Custom Event" trong GTM) ──
+function track(eventName, params) {
+  try { (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: eventName }, params || {})); } catch (e) {}
+}
+
+let currentCategory = '';   // danh mục của kết quả đang hiển thị
 
 let templates = [];
 let currentItem = null;
 
-// ── CLICK 1 → SHOPEE, CLICK 2 → TIKTOK (mỗi cái 1 lần / phiên), sau đó dùng web bình thường ──
-const STEP_LINKS = [AFFILIATE_URL, TIKTOK_URL];
+// ── CLICK ĐẦU TIÊN → SHOPEE (1 lần / phiên), sau đó dùng web bình thường ──
+const STEP_LINKS = [AFFILIATE_URL];   // chỉ 1 bước: click đầu tiên → Shopee
 let clickStep = 0;
 try { clickStep = parseInt(sessionStorage.getItem('click_step') || '0', 10) || 0; } catch (e) {}
 
@@ -327,7 +387,7 @@ const IN_APP = /Barcelona|Instagram|FBAN|FBAV|FB_IAB|Threads/i.test(UA);
 const IS_ANDROID = /android/i.test(UA);
 const IS_IOS = /iphone|ipad|ipod/i.test(UA);
 
-if (IN_APP) {
+if (ENABLE_POPUP && IN_APP) {
   document.getElementById('extOverlay').classList.add('show');
 }
 
@@ -370,12 +430,17 @@ document.addEventListener('click', function (e) {
   if (e.target.closest && e.target.closest('#extOverlay')) return;   // click trong popup không tính vào 2 bước
   if (clickStep >= STEP_LINKS.length) return;   // xong 2 bước → web chạy bình thường
 
-  const url = STEP_LINKS[clickStep];
+  let url = STEP_LINKS[clickStep];
+  if (clickStep === 0) {   // bước Shopee → chọn link theo danh mục của dòng vừa bấm (hoặc kết quả đang hiển thị)
+    const row = e.target.closest && e.target.closest('.result-item');
+    url = affUrlFor((row && row.dataset.cat) || currentCategory);
+  }
+  track('aff_click', { step: 'shopee', category: currentCategory });
   clickStep++;
   try { sessionStorage.setItem('click_step', String(clickStep)); } catch (e) {}
 
   e.preventDefault();
-  e.stopPropagation();           // 2 click đầu chỉ dùng để mở link, không kích hoạt gì khác
+  e.stopPropagation();           // click đầu chỉ dùng để mở link, không kích hoạt gì khác
   window.open(url, '_blank', 'noopener');
 }, true);                        // capture phase: chạy trước mọi onclick khác
 
@@ -409,39 +474,62 @@ return words.every(w => haystack.includes(w));
 });
 }
 
+function rowHtml(t) {
+  return `
+     <div class="result-item" data-cat="${esc(t.category)}" onclick="openPopup(${Number(t.id)})">
+       <div class="item-icon ${esc(fileBg[t.type]||'')}">${fileIcons[t.type]||'📁'}</div>
+       <div class="item-info">
+         <div class="item-name">${esc(t.name)}</div>
+         <div class="item-meta">${esc(t.type)} · ${esc(t.size)}</div>
+       </div>
+       <span class="item-cat">${esc(t.category)}</span>
+       <button class="btn-dl" onclick="event.stopPropagation();openPopup(${Number(t.id)})">Tải về</button>
+     </div>`;
+}
+
+// Tài liệu cùng danh mục với kết quả đầu tiên (chỉ hiện khi kết quả ít)
+function relatedFor(items) {
+  if (!items.length || items.length > 5) return [];
+  const cat = items[0].category;
+  const shown = new Set(items.map(t => t.id));
+  const pool = templates.filter(t => t.category === cat && !shown.has(t.id));
+  for (let i = pool.length - 1; i > 0; i--) {   // xáo trộn để mỗi lần xem khác nhau
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  return pool.slice(0, 5);
+}
+
 function renderResults(items, query) {
 const el = document.getElementById('results');
 document.getElementById('hero').classList.add('compact');
 
 if (!query.trim()) {
+currentCategory = '';
 el.innerHTML = '';
 document.getElementById('hero').classList.remove('compact');
 return;
 }
 
 if (!items.length) {
-el.innerHTML = `<div class="empty"><strong>🔍</strong>Không tìm thấy "<b>${query}</b>"<br>Thử từ khác như: menu, nhân viên, doanh thu...</div>`;
+currentCategory = '';
+el.innerHTML = `<div class="empty"><strong>🔍</strong>Không tìm thấy "<b>${esc(query)}</b>"<br>Thử từ khác như: menu, nhân viên, doanh thu...</div>`;
 return;
 }
 
-el.innerHTML = `<div class="results-label">${items.length} kết quả cho "<b>${query}</b>"</div>` +
-items.map(t => `
-     <div class="result-item" onclick="openPopup(${t.id})">
-       <div class="item-icon ${fileBg[t.type]||''}">${fileIcons[t.type]||'📁'}</div>
-       <div class="item-info">
-         <div class="item-name">${t.name}</div>
-         <div class="item-meta">${t.type} · ${t.size}</div>
-       </div>
-       <span class="item-cat">${t.category}</span>
-       <button class="btn-dl" onclick="event.stopPropagation();openPopup(${t.id})">Tải về</button>
-     </div>
-   `).join('');
+currentCategory = items[0].category;
+const related = relatedFor(items);
+
+el.innerHTML = `<div class="results-label">${items.length} kết quả cho "<b>${esc(query)}</b>"</div>` +
+items.map(rowHtml).join('') +
+(related.length ? `<div class="related-label">📚 Tài liệu liên quan</div>` + related.map(rowHtml).join('') : '');
 }
 
 // Bấm tải → mở thẳng link gốc (không còn popup Shopee)
 function openPopup(id) {
 const item = templates.find(t => t.id === id);
 if (!item) return;
+track('download', { name: item.name, category: item.category });
 window.open(item.drive_url, '_blank');
 showToast();
 }
@@ -463,7 +551,9 @@ let debounce;
 document.getElementById('searchInput').addEventListener('input', e => {
 clearTimeout(debounce);
 debounce = setTimeout(() => {
-renderResults(search(e.target.value), e.target.value);
+const v = e.target.value;
+renderResults(search(v), v);
+if (v.trim()) track('search', { term: v.trim().slice(0, 60) });
 }, 200);
 });
 
@@ -532,6 +622,7 @@ document.getElementById('results').innerHTML = '';
 document.getElementById('hero').classList.remove('compact');
 return;
 }
+track('select_category', { category: name });
 label.textContent = icon + ' ' + name;
 label.className = 'cat-selected';
 document.getElementById('searchInput').value = '';
